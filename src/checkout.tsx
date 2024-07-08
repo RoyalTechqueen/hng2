@@ -246,7 +246,7 @@ const Checkout: React.FC = () => {
         Back
         </button>
           <h1 className="text-2xl font-bold mb-4 text-center">Checkout Order</h1> 
-          <div className="flex items-center justify-center min-h-screen bg-secondary">
+          <div className="flex items-center justify-center  bg-secondary">
           <div className="bg-white  mx-auto max-w-4xl mb-12 p-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <OrderSummary  />

@@ -171,8 +171,8 @@ const Cart: React.FC = () => {
         Back
         </button>
           <h1 className="text-2xl font-bold mb-4 text-center">My Shopping Cart</h1>  
-          <div className="flex items-center justify-center min-h-screen bg-secondary">
-        <div className="  bg-white max-w-4xl  mx-auto p-4">
+          <div className="flex items-center justify-center  bg-secondary">
+        <div className="mb-12  bg-white max-w-4xl  mx-auto p-4">
         <div>
       <div className=" hidden md:flex justify-between items-center border-b pb-4 mb-4">
         <h1 className="text-xl font-semibold">Book Details</h1>
