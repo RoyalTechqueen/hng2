@@ -209,7 +209,7 @@ const Cart: React.FC = () => {
         <BookDetails 
           title="The Last Watch" 
           author="J. S. Dewes" 
-          cover="../public/img 3.jpeg" 
+          cover="/img 3.jpeg" 
           price={15000} 
           genre="Adventure" 
           bestSellerRank={1} 
