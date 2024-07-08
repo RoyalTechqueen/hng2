@@ -53,16 +53,16 @@ const BookCards: React.FC<BookCardProps> = ({ title, genre, price, imageUrl }) =
 
 const ProductPage: React.FC = () => {
   const [books, ] = useState<Book[]>([
-    { id: 1, title: 'Wilde in Love', genre: 'Romance', price: '₦15,000', imageUrl: '../public/img 3.jpeg' },
-    { id: 2, title: 'Solar Bones', genre: 'Horror', price: '₦15,000', imageUrl: '../public/img1.jpeg' },
-    { id: 3, title: 'Jaws', genre: 'Thriller', price: '₦15,000', imageUrl: '../public/img 2.jpeg' },
-    { id: 4, title: 'The Last Watch', genre: 'Adventure', price: '₦15,000', imageUrl: '../public/img4.jpeg' },
-    { id: 5, title: 'Enchanting Dragon Lord', genre: 'Fantasy', price: '₦15,000', imageUrl: '../public/img 5.jpeg' },
-    { id: 6, title: 'Spirit demon', genre: 'Fantasy', price: '₦15,000', imageUrl: '../public/hng image 1.jpg' },
-    { id: 7, title: 'Memory', genre: 'Romance', price: '₦15,000', imageUrl: '../public/hng image2.jpg' },
-    { id: 8, title: 'Harry potter', genre: 'Adventure', price: '₦15,000', imageUrl: '../public/hng image3.jpg' },
-    { id: 9, title: 'Thread', genre: 'Horror', price: '₦15,000', imageUrl: '../public/hng image4.jpg' },
-    { id: 10, title: 'Unseelie', genre: 'Thriller', price: '₦15,000', imageUrl: '../public/hng image 5.jpg' },
+    { id: 1, title: 'Wilde in Love', genre: 'Romance', price: '₦15,000', imageUrl: '/img 3.jpeg' },
+    { id: 2, title: 'Solar Bones', genre: 'Horror', price: '₦15,000', imageUrl: '/img1.jpeg' },
+    { id: 3, title: 'Jaws', genre: 'Thriller', price: '₦15,000', imageUrl: '/img 2.jpeg' },
+    { id: 4, title: 'The Last Watch', genre: 'Adventure', price: '₦15,000', imageUrl: '/img4.jpeg' },
+    { id: 5, title: 'Enchanting Dragon Lord', genre: 'Fantasy', price: '₦15,000', imageUrl: '/img 5.jpeg' },
+    { id: 6, title: 'Spirit demon', genre: 'Fantasy', price: '₦15,000', imageUrl: '/hng image 1.jpg' },
+    { id: 7, title: 'Memory', genre: 'Romance', price: '₦15,000', imageUrl: '/hng image2.jpg' },
+    { id: 8, title: 'Harry potter', genre: 'Adventure', price: '₦15,000', imageUrl: '/hng image3.jpg' },
+    { id: 9, title: 'Thread', genre: 'Horror', price: '₦15,000', imageUrl: '/hng image4.jpg' },
+    { id: 10, title: 'Unseelie', genre: 'Thriller', price: '₦15,000', imageUrl: '/hng image 5.jpg' },
   ]);
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -145,7 +145,7 @@ const ProductPage: React.FC = () => {
             <h3 className="border rounded p-2">Novels</h3>
             <h3>Educational books</h3>
           </nav>
-          <img src="../public/Books Logo.png" alt="Books Logo" />
+          <img src="/Books Logo.png" alt="Books Logo" />
           <div className="flex items-center gap-4">
             <form className="max-w-md mx-auto">
               <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
