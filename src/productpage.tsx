@@ -37,8 +37,8 @@ const BookCards: React.FC<BookCardProps> = ({ title, genre, price, imageUrl }) =
           <img src={imageUrl} alt={title} className="w-32 h-48 object-cover mb-4" />
         </div>
         <div className="text-left mt-4">
-          <h3 className="text-md font-semi-bold">{title}</h3>
-          <p className="text-black">{genre}</p>
+          <h3 className="text-md font-bold">{title}</h3>
+          <p className="text-black text-xs">{genre}</p>
         </div>
         <div className='flex items-center mt-2'>
           <p className="text-black text-sm">{price}</p>
@@ -49,8 +49,8 @@ const BookCards: React.FC<BookCardProps> = ({ title, genre, price, imageUrl }) =
         <div className="border rounded p-4 flex items-center">
           <img src={imageUrl} alt={title} className="w-36 h-48 object-cover mb-4" />
           <div className='flex flex-col text-left justify-center items-center'>
-            <h3 className="text-md font-semi-bold">{title}</h3>
-            <p className="text-black">{genre}</p>
+            <h3 className="text-md font-bold">{title}</h3>
+            <p className="text-black text-xs">{genre}</p>
             <p className="text-black font-medium">{price}</p>
             <button className="ml-2 px-2 py-1 bg-primary text-white rounded" onClick={() => handleNavigate("/cart")}>Add to Cart</button>
           </div>
