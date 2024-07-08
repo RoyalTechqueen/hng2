@@ -247,7 +247,7 @@ const Checkout: React.FC = () => {
         </button>
           <h1 className="text-2xl font-bold mb-4 text-center">Checkout Order</h1> 
           <div className="flex items-center justify-center min-h-screen bg-secondary">
-          <div className="bg-white  mx-auto max-w-4xl  p-4">
+          <div className="bg-white  mx-auto max-w-4xl mb-12 p-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <OrderSummary  />
             <Delivery />
@@ -255,7 +255,7 @@ const Checkout: React.FC = () => {
             </div>
           </div>
           </div>
-          <div className='bg-primary mx-auto flex flex-col  items-center justify-center h-screen text-white'>
+          <div className='bg-primary mx-auto flex flex-col  items-center justify-center text-white'>
     <h1 className='mt-4  font-medium'>Subscripe to our FREE VIP Email alerts</h1>
     <p className='mt-4 text-center'>Sign up today and never miss our new books and sales deals again</p>
     <div className='flex items-center justify-between gap-2 mt-4'>
@@ -268,7 +268,7 @@ const Checkout: React.FC = () => {
         />
         <button className=' block w-full bg-secondary px-3 py-1'>Sign Up</button>
     </div>
-    <div className='flex flex-col md:flex-row gap-4 items-center   mt-4 justify-between'>
+    <div className='flex flex-col md:flex-row gap-4 items-center mb-12  mt-4 justify-between'>
       <p className='text-center whitespace-nowrap'>Download Mobile App</p>
       <div className=' flex  items-center gap-2 py-3 bg-white text-black block w-full border border-gray-300'>
         <div className='flex items-center '>
