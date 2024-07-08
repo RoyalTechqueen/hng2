@@ -29,11 +29,11 @@ const BookCards: React.FC<BookCardProps> = ({ title, genre, price, imageUrl }) =
         </div>
         <div className="text-left mt-4">
           <h3 className="text-md font-semi-bold">{title}</h3>
-          <p className="text-gray-600">{genre}</p>
+          <p className="text-black">{genre}</p>
         </div>
         <div className='flex items-center mt-2'>
-          <p className="text-gray-800 font-medium">{price}</p>
-          <button className="ml-2 px-2 py-1 bg-primary text-white rounded">Add to Cart</button>
+          <p className="text-black text-sm">{price}</p>
+          <button className="ml-3 px-1 py-1 bg-primary text-white rounded">Add to Cart</button>
         </div>
       </div>
       <div className='md:hidden p-4 sm:flex flex-row items-center gap-4'>
@@ -41,29 +41,44 @@ const BookCards: React.FC<BookCardProps> = ({ title, genre, price, imageUrl }) =
           <img src={imageUrl} alt={title} className="w-36 h-48 object-cover mb-4" />
           <div className='flex flex-col text-left justify-center items-center'>
             <h3 className="text-md font-semi-bold">{title}</h3>
-            <p className="text-gray-600">{genre}</p>
-            <p className="text-gray-800 font-medium">{price}</p>
+            <p className="text-black">{genre}</p>
+            <p className="text-black font-medium">{price}</p>
             <button className="ml-2 px-2 py-1 bg-primary text-white rounded">Add to Cart</button>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
-const ProductPage: React.FC = () => {
-  const [books, ] = useState<Book[]>([
-    { id: 1, title: 'Wilde in Love', genre: 'Romance', price: '₦15,000', imageUrl: '/img 3.jpeg' },
-    { id: 2, title: 'Solar Bones', genre: 'Horror', price: '₦15,000', imageUrl: '/img1.jpeg' },
-    { id: 3, title: 'Jaws', genre: 'Thriller', price: '₦15,000', imageUrl: '/img 2.jpeg' },
-    { id: 4, title: 'The Last Watch', genre: 'Adventure', price: '₦15,000', imageUrl: '/img4.jpeg' },
-    { id: 5, title: 'Enchanting Dragon Lord', genre: 'Fantasy', price: '₦15,000', imageUrl: '/img 5.jpeg' },
-    { id: 6, title: 'Spirit demon', genre: 'Fantasy', price: '₦15,000', imageUrl: '/hng image 1.jpg' },
-    { id: 7, title: 'Memory', genre: 'Romance', price: '₦15,000', imageUrl: '/hng image2.jpg' },
-    { id: 8, title: 'Harry potter', genre: 'Adventure', price: '₦15,000', imageUrl: '/hng image3.jpg' },
-    { id: 9, title: 'Thread', genre: 'Horror', price: '₦15,000', imageUrl: '/hng image4.jpg' },
-    { id: 10, title: 'Unseelie', genre: 'Thriller', price: '₦15,000', imageUrl: '/hng image 5.jpg' },
+const ProductPage = () => {
+  // Initial list of books
+  const [books] = useState<Book[]>([
+{ id: 1, title: 'Wilde in Love', genre: 'Romance', price: '₦15,000', imageUrl: '../public/img 3.jpeg' },
+{ id: 2, title: 'Solar Bones', genre: 'Horror', price: '₦15,000', imageUrl: '../public/img1.jpeg' },
+{ id: 3, title: 'Jaws', genre: 'Thriller', price: '₦15,000', imageUrl: '../public/img 2.jpeg' },
+{ id: 4, title: 'The Last Watch', genre: 'Adventure', price: '₦15,000', imageUrl: '../public/img4.jpeg' },
+{ id: 5, title: 'Enchanting Dragon Lord', genre: 'Fantasy', price: '₦15,000', imageUrl: '../public/img 5.jpeg' },
+{ id: 6, title: 'Spirit demon', genre: 'Fantasy', price: '₦15,000', imageUrl: '../public/hng image 1.jpg' },
+{ id: 7, title: 'Memory', genre: 'Romance', price: '₦15,000', imageUrl: '../public/hng image2.jpg' },
+{ id: 8, title: 'Harry potter', genre: 'Adventure', price: '₦15,000', imageUrl: '../public/hng image3.jpg' },
+{ id: 9, title: 'Thread', genre: 'Horror', price: '₦15,000', imageUrl: '../public/hng image4.jpg' },
+{ id: 10, title: 'Unseelie', genre: 'Thriller', price: '₦15,000', imageUrl: '../public/hng image 5.jpg' },
+{ id: 11, title: 'Spirit demon', genre: 'Fantasy', price: '₦15,000', imageUrl: '../public/hng image 1.jpg' },
+{ id: 12, title: 'Memory', genre: 'Romance', price: '₦15,000', imageUrl: '../public/hng image2.jpg' },
+{ id: 13, title: 'Harry potter', genre: 'Adventure', price: '₦15,000', imageUrl: '../public/hng image3.jpg' },
+{ id: 14, title: 'Thread', genre: 'Horror', price: '₦15,000', imageUrl: '../public/hng image4.jpg' },
+{ id: 15, title: 'Unseelie', genre: 'Thriller', price: '₦15,000', imageUrl: '../public/hng image 5.jpg' },
+{ id: 16, title: 'Wilde in Love', genre: 'Romance', price: '₦15,000', imageUrl: '../public/img 3.jpeg' },
+{ id: 17, title: 'Solar Bones', genre: 'Horror', price: '₦15,000', imageUrl: '../public/img1.jpeg' },
+{ id: 18, title: 'Jaws', genre: 'Thriller', price: '₦15,000', imageUrl: '../public/img 2.jpeg' },
+{ id: 19, title: 'The Last Watch', genre: 'Adventure', price: '₦15,000', imageUrl: '../public/img4.jpeg' },
+{ id: 20, title: 'Enchanting Dragon Lord', genre: 'Fantasy', price: '₦15,000', imageUrl: '../public/img 5.jpeg' },
   ]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedGenre, setSelectedGenre] = useState('All');
@@ -78,8 +93,9 @@ const ProductPage: React.FC = () => {
     setShowMenu(false);
   };
 
+  // Filter function with pagination
   const filterBooks = () => {
-    let filteredBooks = books;
+    let filteredBooks = [...books];
 
     if (selectedGenre !== 'All') {
       filteredBooks = filteredBooks.filter(book => book.genre === selectedGenre);
@@ -91,13 +107,24 @@ const ProductPage: React.FC = () => {
       );
     }
 
-    return filteredBooks;
+    const indexOfLastBook = currentPage * itemsPerPage;
+    const indexOfFirstBook = indexOfLastBook - itemsPerPage;
+    return filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
   };
 
+  // Change page
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  // Calculate pagination numbers to show
+  const pageNumbers = [];
+  for (let i = Math.max(1, currentPage - 2); i <= Math.min(currentPage + 2, Math.ceil(books.length / itemsPerPage)); i++) {
+    pageNumbers.push(i);
+  }
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Navbar */}
-      <div className="bg-white shadow-md">
+    <div className='min-h-screen bg-white'>
+
+<div className="bg-white shadow-md">
         <div className="container mx-auto p-4 flex justify-between gap-4 items-center">
           <button
             className="block md:hidden ml-4"
@@ -120,21 +147,21 @@ const ProductPage: React.FC = () => {
             </button>
             <a
               href="#"
-              className="hover:text-gray-600 text-xl"
+              className="hover:text-black text-xl"
               onClick={handleLinkClick}
             >
               StoryBooks
             </a>
             <a
               href="#"
-              className="hover:text-gray-600 text-xl"
+              className="hover:text-black text-xl"
               onClick={handleLinkClick}
             >
               Novels
             </a>
             <a
               href="#"
-              className="hover:text-gray-600 text-xl"
+              className="hover:text-black text-xl"
               onClick={handleLinkClick}
             >
               Educational books
@@ -148,7 +175,7 @@ const ProductPage: React.FC = () => {
           <img src="/Books Logo.png" alt="Books Logo" />
           <div className="flex items-center gap-4">
             <form className="max-w-md mx-auto">
-              <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
+              <label htmlFor="default-search" className="mb-2 text-sm font-medium text-black sr-only">Search</label>
               <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                   <FaSearch />
@@ -158,7 +185,7 @@ const ProductPage: React.FC = () => {
                   id="default-search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+                  className="block w-full p-4 ps-10 text-sm text-black border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
                   placeholder="Search title, authors..."
                   required
                 />
@@ -190,28 +217,29 @@ const ProductPage: React.FC = () => {
           </select>
         </div>
       </div>
-
-      {/* Render filtered list */}
-      <div className="container mx-auto p-4">
-       
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          {filterBooks().map(book => (
-            <BookCards
-                key={book.id}
-                title={book.title}
-                genre={book.genre}
-                price={book.price}
-                imageUrl={book.imageUrl}
-              />
-            ))}
-        </div>
+      {/* Render filtered and paginated list */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        {filterBooks().map(book => (
+          <BookCards 
+            key={book.id}
+            title={book.title}
+            genre={book.genre}
+            price={book.price}
+            imageUrl={book.imageUrl}
+          />
+        ))}
       </div>
-
-      {/* Pagination - placeholder */}
-      <div className="mt-4 flex justify-center items-center">
-        <button className="px-3 py-1 border rounded bg-secondary">1</button>
-        {/* Add pagination logic */}
-      </div>
+      {/* Pagination */}
+      <ul className="flex justify-center mt-4">
+        {/* Page numbers */}
+        {pageNumbers.map(number => (
+          <li key={number} className={` mx-1 px-3 py-1 cursor-pointer ${currentPage === number ? 'bg-secondary text-black' : 'bg-white'}`} onClick={() => paginate(number)}>
+            {number}
+          </li>
+        ))}  
+        <li>...</li>
+        <li className='mx-1 px-3 py-1 bg-white'> 10</li>
+      </ul>
     </div>
   );
 };

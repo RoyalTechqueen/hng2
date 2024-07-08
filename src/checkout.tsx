@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
             <h3 className="border rounded p-2">Novels</h3>
             <h3>Educational books</h3>
           </nav>
-          <div className="text-xl font-bold">WiseReads</div>
+          <img src="/Books Logo.png" alt="Books Logo" />
           <div className="flex items-center gap-4">
             <form className="max-w-md mx-auto">
               <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
@@ -245,7 +245,7 @@ const Checkout: React.FC = () => {
         Back
         </button>
           <h1 className="text-2xl font-bold mb-4 text-center">Checkout Order</h1> 
-          <main className="bg-white  min-h-screen mx-auto max-w-4xl mb-8 p-4">
+          <main className="bg-white  min-h-screen mx-auto max-w-4xl  p-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <OrderSummary  />
             <Delivery />

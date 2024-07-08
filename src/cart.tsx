@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
           <h3 className="border rounded p-2">Novels</h3>
           <h3>Educational books</h3>
         </nav>
-        <div className="text-xl font-bold">WiseReads</div>
+        <img src="/Books Logo.png" alt="Books Logo" />
         <div className="flex items-center gap-4">
           <form className="max-w-md mx-auto">
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
