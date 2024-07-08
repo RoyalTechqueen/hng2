@@ -6,6 +6,8 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx"
 import { useNavigate } from "react-router-dom";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaApple, FaGooglePlay } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -161,7 +163,7 @@ const Cart: React.FC = () => {
     navigate(path);
   };
     return(
-        <main className="min-h-screen bg-secondary">
+        <div className="min-h-screen bg-secondary">
         <Navbar />
         <hr className=" border-t-2 border-black" />
         <button className="text-black flex items-center gap-2" onClick={() => handleNavigate("/")}>
@@ -169,7 +171,8 @@ const Cart: React.FC = () => {
         Back
         </button>
           <h1 className="text-2xl font-bold mb-4 text-center">My Shopping Cart</h1>  
-        <div className="bg-white max-w-4xl   mx-auto p-4">
+          <div className="flex items-center justify-center min-h-screen bg-secondary">
+        <div className="  bg-white max-w-4xl  mx-auto p-4">
         <div>
       <div className=" hidden md:flex justify-between items-center border-b pb-4 mb-4">
         <h1 className="text-xl font-semibold">Book Details</h1>
@@ -247,14 +250,69 @@ const Cart: React.FC = () => {
             <button type="submit" className="text-black border-black border border-1 absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none  font-medium rounded text-sm px-4 py-2 ">Apply Coupon</button>
           </div>
         </form>
-        <button className="p-2 text-black   bg-green-500 rounded" onClick={() => handleNavigate("/checkout")}>
+        <button className="p-2 text-black   bg-primary rounded" onClick={() => handleNavigate("/checkout")}>
           Checkout 
         </button>
         <button className="p-2 text-black rounded " onClick={() => handleNavigate("/")}>Continue Shopping</button>
       </div>
     </div>
         </div>
-      </main>
+        </div>
+        <div className='bg-primary mx-auto flex flex-col  items-center justify-center h-screen text-white'>
+    <h1 className='mt-4  font-medium'>Subscripe to our FREE VIP Email alerts</h1>
+    <p className='mt-4 text-center'>Sign up today and never miss our new books and sales deals again</p>
+    <div className='flex items-center justify-between gap-2 mt-4'>
+    <input
+          type="email"
+          id="email"
+          name="email"
+          className="mt-1 block px-3 py-2 border border-gray-300 focus:outline-none  sm:text-sm" 
+          placeholder='Enter your email'
+        />
+        <button className=' block w-full bg-secondary px-3 py-1'>Sign Up</button>
+    </div>
+    <div className='flex flex-col md:flex-row gap-4 items-center   mt-4 justify-between'>
+      <p className='text-center whitespace-nowrap'>Download Mobile App</p>
+      <div className=' flex  items-center gap-2 py-3 bg-white text-black block w-full border border-gray-300'>
+        <div className='flex items-center '>
+          <FaApple className='w-12 h-12' />
+        </div>
+        <div className='flex flex-col items-center '>
+          <p className='whitespace-nowrap'>Download on the</p>
+          <h4>App Store</h4>
+        </div>
+      </div>
+      <div className='flex  items-center gap-2 py-3 bg-white text-black block w-full border border-gray-300'>
+        <div className='flex items-center'>
+          <FaGooglePlay className='w-12 h-12' />
+        </div>
+        <div className='flex flex-col  items-center'>
+          <p className='whitespace-nowrap'>Get it on</p>
+          <h4>Google Play</h4>
+        </div>
+      </div>
+    </div>
+   
+      </div>
+      <div className='bg-white grid grid-cols-2 md:grid-cols-4 gap-4  p-2'>
+  <div className='flex items-center justify-center'>
+    <img src="/Books Logo.png" alt="Books Logo" />
+  </div>
+  <div className='flex items-center justify-center gap-2'>
+    <FaPhoneAlt />
+    <p>Contact Us</p>
+  </div>
+  <div className='flex items-center justify-center'>
+    <p>wise'R'books. All rights reserved</p>
+  </div>
+  <div className='flex items-center justify-center gap-4'>
+    <ul className='flex gap-4'>
+      <li>Privacy</li>
+      <li>Terms</li>
+    </ul>
+  </div>
+  </div>
+        </div>
     );
 };
 

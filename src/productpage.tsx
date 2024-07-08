@@ -4,6 +4,8 @@ import { IoCartOutline } from 'react-icons/io5';
 import { IoMdClose } from 'react-icons/io';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useNavigate } from 'react-router-dom';
+import { FaPhoneAlt } from 'react-icons/fa';
+import { FaApple, FaGooglePlay } from 'react-icons/fa';
 
 interface Book {
   id: number;
@@ -20,7 +22,14 @@ interface BookCardProps {
   imageUrl: string;
 }
 
+
+
 const BookCards: React.FC<BookCardProps> = ({ title, genre, price, imageUrl }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
+  };
   return (
     <div className='p-4'>
       <div className='hidden md:flex flex-col items-center'>
@@ -33,7 +42,7 @@ const BookCards: React.FC<BookCardProps> = ({ title, genre, price, imageUrl }) =
         </div>
         <div className='flex items-center mt-2'>
           <p className="text-black text-sm">{price}</p>
-          <button className="ml-3 px-1 py-1 bg-primary text-white rounded">Add to Cart</button>
+          <button className="ml-3 px-1 py-1 bg-primary text-white rounded" onClick={() => handleNavigate("/cart")}>Add to Cart</button>
         </div>
       </div>
       <div className='md:hidden p-4 sm:flex flex-row items-center gap-4'>
@@ -43,7 +52,7 @@ const BookCards: React.FC<BookCardProps> = ({ title, genre, price, imageUrl }) =
             <h3 className="text-md font-semi-bold">{title}</h3>
             <p className="text-black">{genre}</p>
             <p className="text-black font-medium">{price}</p>
-            <button className="ml-2 px-2 py-1 bg-primary text-white rounded">Add to Cart</button>
+            <button className="ml-2 px-2 py-1 bg-primary text-white rounded" onClick={() => handleNavigate("/cart")}>Add to Cart</button>
           </div>
         </div>
       </div>
@@ -102,8 +111,8 @@ const ProductPage = () => {
  
   return (
     <div className='min-h-screen bg-white'>
-
-<div className="bg-white shadow-md">
+      {/* Header */}
+      <div className="bg-white shadow-md">
         <div className="container mx-auto p-4 flex justify-between gap-4 items-center">
           <button
             className="block md:hidden ml-4"
@@ -151,7 +160,7 @@ const ProductPage = () => {
             <h3 className="border rounded p-2">Novels</h3>
             <h3>Educational books</h3>
           </nav>
-          <img src="/Books Logo.png" alt="Books Logo" />
+          <img src="/Books Logo.png" className='w-24 h-full md:flex' alt="Books Logo" />
           <div className="flex items-center gap-4">
             <form className="max-w-md mx-auto">
               <label htmlFor="default-search" className="mb-2 text-sm font-medium text-black sr-only">Search</label>
@@ -177,7 +186,6 @@ const ProductPage = () => {
         </div>
       </div>
       <h1 className="text-2xl font-bold mb-4 text-center mt-4">Novels</h1>
-
       {/* Dropdown for selecting category */}
       <div className='mb-4 flex justify-between items-center text-center flex-wrap'>
         <div className='mx-auto border rounded px-2 py-1 bg-white flex items-center gap-4'>
@@ -196,7 +204,7 @@ const ProductPage = () => {
           </select>
         </div>
       </div>
-      {/* Render filtered and paginated list */}
+      {/* Render filtered  list */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         {filterBooks().map(book => (
           <BookCards 
@@ -208,7 +216,60 @@ const ProductPage = () => {
           />
         ))}
       </div>
-      
+      <div className='bg-primary mx-auto flex flex-col  items-center justify-center h-screen text-white'>
+    <h1 className='mt-4  font-medium'>Subscripe to our FREE VIP Email alerts</h1>
+    <p className='mt-4 text-center'>Sign up today and never miss our new books and sales deals again</p>
+    <div className='flex items-center justify-between gap-2 mt-4'>
+    <input
+          type="email"
+          id="email"
+          name="email"
+          className="mt-1 block px-3 py-2 border border-gray-300 focus:outline-none  sm:text-sm" 
+          placeholder='Enter your email'
+        />
+        <button className=' block w-full bg-secondary px-3 py-1'>Sign Up</button>
+    </div>
+    <div className='flex flex-col md:flex-row gap-4 items-center   mt-4 justify-between'>
+      <p className='text-center whitespace-nowrap'>Download Mobile App</p>
+      <div className=' flex  items-center gap-2 py-3 bg-white text-black block w-full border border-gray-300'>
+        <div className='flex items-center '>
+          <FaApple className='w-12 h-12' />
+        </div>
+        <div className='flex flex-col items-center '>
+          <p className='whitespace-nowrap'>Download on the</p>
+          <h4>App Store</h4>
+        </div>
+      </div>
+      <div className='flex  items-center gap-2 py-3 bg-white text-black block w-full border border-gray-300'>
+        <div className='flex items-center'>
+          <FaGooglePlay className='w-12 h-12' />
+        </div>
+        <div className='flex flex-col  items-center'>
+          <p className='whitespace-nowrap'>Get it on</p>
+          <h4>Google Play</h4>
+        </div>
+      </div>
+    </div>
+   
+      </div>
+      <div className='bg-white grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-2'>
+  <div className='flex items-center justify-center'>
+    <img src="/Books Logo.png" alt="Books Logo" />
+  </div>
+  <div className='flex items-center justify-center gap-2'>
+    <FaPhoneAlt />
+    <p>Contact Us</p>
+  </div>
+  <div className='flex items-center justify-center'>
+    <p>wise'R'books. All rights reserved</p>
+  </div>
+  <div className='flex items-center justify-center gap-4'>
+    <ul className='flex gap-4'>
+      <li>Privacy</li>
+      <li>Terms</li>
+    </ul>
+  </div>
+  </div>
     </div>
   );
 };
