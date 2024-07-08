@@ -64,21 +64,9 @@ const ProductPage = () => {
 { id: 8, title: 'Harry potter', genre: 'Adventure', price: '₦15,000', imageUrl: '/hng image3.jpg' },
 { id: 9, title: 'Thread', genre: 'Horror', price: '₦15,000', imageUrl: '/hng image4.jpg' },
 { id: 10, title: 'Unseelie', genre: 'Thriller', price: '₦15,000', imageUrl: '/hng image 5.jpg' },
-{ id: 11, title: 'Spirit demon', genre: 'Fantasy', price: '₦15,000', imageUrl: '/hng image 1.jpg' },
-{ id: 12, title: 'Memory', genre: 'Romance', price: '₦15,000', imageUrl: '/hng image2.jpg' },
-{ id: 13, title: 'Harry potter', genre: 'Adventure', price: '₦15,000', imageUrl: '/hng image3.jpg' },
-{ id: 14, title: 'Thread', genre: 'Horror', price: '₦15,000', imageUrl: '/hng image4.jpg' },
-{ id: 15, title: 'Unseelie', genre: 'Thriller', price: '₦15,000', imageUrl: '/hng image 5.jpg' },
-{ id: 16, title: 'Wilde in Love', genre: 'Romance', price: '₦15,000', imageUrl: '/img 3.jpeg' },
-{ id: 17, title: 'Solar Bones', genre: 'Horror', price: '₦15,000', imageUrl: '/img1.jpeg' },
-{ id: 18, title: 'Jaws', genre: 'Thriller', price: '₦15,000', imageUrl: '/img 2.jpeg' },
-{ id: 19, title: 'The Last Watch', genre: 'Adventure', price: '₦15,000', imageUrl: '/img4.jpeg' },
-{ id: 20, title: 'Enchanting Dragon Lord', genre: 'Fantasy', price: '₦15,000', imageUrl: '/img 5.jpeg' },
   ]);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-
+  
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedGenre, setSelectedGenre] = useState('All');
@@ -107,20 +95,11 @@ const ProductPage = () => {
       );
     }
 
-    const indexOfLastBook = currentPage * itemsPerPage;
-    const indexOfFirstBook = indexOfLastBook - itemsPerPage;
-    return filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
+    return filteredBooks;
+   
   };
 
-  // Change page
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
-  // Calculate pagination numbers to show
-  const pageNumbers = [];
-  for (let i = Math.max(1, currentPage - 2); i <= Math.min(currentPage + 2, Math.ceil(books.length / itemsPerPage)); i++) {
-    pageNumbers.push(i);
-  }
-
+ 
   return (
     <div className='min-h-screen bg-white'>
 
@@ -229,17 +208,7 @@ const ProductPage = () => {
           />
         ))}
       </div>
-      {/* Pagination */}
-      <ul className="flex justify-center mt-4">
-        {/* Page numbers */}
-        {pageNumbers.map(number => (
-          <li key={number} className={` mx-1 px-3 py-1 cursor-pointer ${currentPage === number ? 'bg-secondary text-black' : 'bg-white'}`} onClick={() => paginate(number)}>
-            {number}
-          </li>
-        ))}  
-        <li>...</li>
-        <li className='mx-1 px-3 py-1 bg-white'> 10</li>
-      </ul>
+      
     </div>
   );
 };
