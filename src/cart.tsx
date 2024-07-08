@@ -39,21 +39,21 @@ const Navbar: React.FC = () => {
           </button>
           <a
             href="#"
-            className="hover:text-gray-600 text-xl"
+            className="hover:text-black text-xl"
             onClick={handleLinkClick}
           >
             StoryBooks
           </a>
           <a
             href="#"
-            className="hover:text-gray-600 text-xl"
+            className="hover:text-black text-xl"
             onClick={handleLinkClick}
           >
             Novels
           </a>
           <a
             href="#"
-            className="hover:text-gray-600 text-xl"
+            className="hover:text-black text-xl"
             onClick={handleLinkClick}
           >
             Educational books
@@ -64,10 +64,10 @@ const Navbar: React.FC = () => {
           <h3 className="border rounded p-2">Novels</h3>
           <h3>Educational books</h3>
         </nav>
-        <img src="/Books Logo.png" alt="Books Logo" />
+        <img src="/Books Logo.png" alt="Books Logo" className='w-24 md:w-auto'/>
         <div className="flex items-center gap-4">
           <form className="max-w-md mx-auto">
-            <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
+            <label htmlFor="default-search" className="mb-2 text-sm font-medium text-black sr-only">Search</label>
             <div className="relative">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <FaSearch />
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
               <input
                 type="search"
                 id="default-search"
-                className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+                className="block w-full p-4 ps-10 text-sm text-black border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
                 placeholder="Search title, authors..."
                 required
               />
@@ -106,7 +106,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ title, author, cover,  genre 
       <div>
         <h2 className="text-lg font-semibold">{title}</h2>
         <p>by {author}</p>
-        <p className="text-sm text-gray-600">Genre:{genre}</p>
+        <p className="text-sm text-black">Genre:{genre}</p>
       </div>
     </div>
   );
@@ -186,7 +186,7 @@ const Cart: React.FC = () => {
       <BookDetails
           title="The Last Watch" 
           author="J. S. Dewes" 
-          cover="../public/img 3.jpeg" 
+          cover="/img 3.jpeg" 
           price={15000} 
           genre="Adventure" 
           bestSellerRank={1} 
@@ -228,7 +228,7 @@ const Cart: React.FC = () => {
         <form className="max-w-md items-center">
           <label htmlFor="Coupon" className="mb-2 text-sm font-medium">If you have a promotion code, please enter it here</label>
           <div className="relative">
-            <input type="coupon" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-md focus:outline-none" placeholder="please enter your coupon" />
+            <input type="coupon" className="block w-full p-4 text-sm text-black border border-gray-300 rounded-md focus:outline-none" placeholder="please enter your coupon" />
             <button type="submit" className="text-black border-black border border-1 absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none  font-medium rounded text-sm px-4 py-2 ">Apply Coupon</button>
           </div>
         </form>
@@ -246,7 +246,7 @@ const Cart: React.FC = () => {
       <form className="max-w-md items-center">
           <label htmlFor="Coupon" className="mb-2 text-sm font-medium">If you have a promotion code, please enter it here</label>
           <div className="relative">
-            <input type="coupon" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-md focus:outline-none" placeholder="please enter your coupon" />
+            <input type="coupon" className="block w-full p-4 text-sm text-black border border-gray-300 rounded-md focus:outline-none" placeholder="please enter your coupon" />
             <button type="submit" className="text-black border-black border border-1 absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none  font-medium rounded text-sm px-4 py-2 ">Apply Coupon</button>
           </div>
         </form>

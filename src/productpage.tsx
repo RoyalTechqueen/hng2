@@ -160,7 +160,7 @@ const ProductPage = () => {
             <h3 className="border rounded p-2">Novels</h3>
             <h3>Educational books</h3>
           </nav>
-          <img src="/Books Logo.png" className='w-24 h-full md:flex' alt="Books Logo" />
+          <img src="/Books Logo.png" className='w-24 md:w-auto' alt="Books Logo" />
           <div className="flex items-center gap-4">
             <form className="max-w-md mx-auto">
               <label htmlFor="default-search" className="mb-2 text-sm font-medium text-black sr-only">Search</label>

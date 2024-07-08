@@ -42,21 +42,21 @@ const Navbar: React.FC = () => {
             </button>
             <a
               href="#"
-              className="hover:text-gray-600 text-xl"
+              className="hover:text-black text-xl"
               onClick={handleLinkClick}
             >
               StoryBooks
             </a>
             <a
               href="#"
-              className="hover:text-gray-600 text-xl"
+              className="hover:text-black text-xl"
               onClick={handleLinkClick}
             >
               Novels
             </a>
             <a
               href="#"
-              className="hover:text-gray-600 text-xl"
+              className="hover:text-black text-xl"
               onClick={handleLinkClick}
             >
               Educational books
@@ -67,10 +67,10 @@ const Navbar: React.FC = () => {
             <h3 className="border rounded p-2">Novels</h3>
             <h3>Educational books</h3>
           </nav>
-          <img src="/Books Logo.png" alt="Books Logo" />
+          <img src="/Books Logo.png" alt="Books Logo"  className='w-24 md:w-auto'/>
           <div className="flex items-center gap-4">
             <form className="max-w-md mx-auto">
-              <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
+              <label htmlFor="default-search" className="mb-2 text-sm font-medium text-black sr-only">Search</label>
               <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                   <FaSearch />
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
                 <input
                   type="search"
                   id="default-search"
-                  className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+                  className="block w-full p-4 ps-10 text-sm text-black border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
                   placeholder="Search title, authors..."
                   required
                 />
@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
         <div className="bg-green">
             <form className="max-w-lg mx-auto p-6 bg-white">
             <div className="mb-4">
-        <label htmlFor="fName" className="block text-sm font-medium text-gray-700">First Name</label>
+        <label htmlFor="fName" className="block text-sm font-medium text-black">First Name</label>
         <input
           type="text"
           id="fName"
@@ -140,7 +140,7 @@ const Navbar: React.FC = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="LName" className="block text-sm font-medium text-gray-700">Last Name</label>
+        <label htmlFor="LName" className="block text-sm font-medium text-black">Last Name</label>
         <input
           type="text"
           id="lName"
@@ -149,7 +149,7 @@ const Navbar: React.FC = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+        <label htmlFor="email" className="block text-sm font-medium text-black">Email Address</label>
         <input
           type="email"
           id="fName"
@@ -158,7 +158,7 @@ const Navbar: React.FC = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="tel" className="block text-sm font-medium text-gray-700">Telephone</label>
+        <label htmlFor="tel" className="block text-sm font-medium text-black">Telephone</label>
         <input
           type="tel"
           id="phone"
@@ -167,7 +167,7 @@ const Navbar: React.FC = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="delivery" className="block text-sm font-medium text-gray-700">Delivery Address</label>
+        <label htmlFor="delivery" className="block text-sm font-medium text-black">Delivery Address</label>
         <input
           type="text"
           id="delivery"
@@ -176,7 +176,7 @@ const Navbar: React.FC = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="state" className="block text-sm font-medium text-gray-700">State</label>
+        <label htmlFor="state" className="block text-sm font-medium text-black">State</label>
         <input
           type="text"
           id="state"
@@ -185,7 +185,7 @@ const Navbar: React.FC = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="country" className="block text-sm font-medium text-gray-700">Country</label>
+        <label htmlFor="country" className="block text-sm font-medium text-black">Country</label>
         <select name="country" id="country" className="mt-1 block w-full  px-3 py-2 border border-gray-300">
             <option value="Nigeria">Nigeria</option>
         </select>
@@ -210,13 +210,13 @@ const Navbar: React.FC = () => {
             </div>
             <div className="flex items-center mt-2 w-full max-w-md mx-auto">
         <div className="flex-grow border-t border-gray-300"></div>
-        <span className="px-4 text-sm text-gray-500">Or pay with</span>
+        <span className="px-4 text-sm text-black">Or pay with</span>
         <div className="flex-grow border-t border-gray-300"></div>
     </div>
             <form className="max-w-md items-center mt-4">
           <label htmlFor="Card" className="mb-2 text-sm">Card Information</label>
           <div className="relative">
-            <input type="card" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-md focus:outline-none" placeholder="1234 1234 1234" />
+            <input type="card" className="block w-full p-4 text-sm text-black border border-gray-300 rounded-md focus:outline-none" placeholder="1234 1234 1234" />
             <div  className="text-black flex space-x-1  absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none  font-medium rounded text-sm  py-2 "> 
                 <FaCcVisa className="w-4 h-4 text-red" />
                 <FaCcMastercard  className="w-4 h-4 text-red"/>
@@ -224,8 +224,8 @@ const Navbar: React.FC = () => {
           </div>
         </form>
         <div className="mt-2 flex ">
-            <input type="card" className="block w-full p-4 text-sm text-gray-900 border border-gray-300  focus:outline-none" placeholder="MM/YY" />
-            <input type="card" className="block w-full p-4 text-sm text-gray-900 border border-gray-300  focus:outline-none" placeholder="CVC" />
+            <input type="card" className="block w-full p-4 text-sm text-black border border-gray-300  focus:outline-none" placeholder="MM/YY" />
+            <input type="card" className="block w-full p-4 text-sm text-black border border-gray-300  focus:outline-none" placeholder="CVC" />
             </div>
             <button className="block w-full px-4 py-2 items-center bg-primary text-white mt-4">Pay #15,000</button>
         </div>
