@@ -17,7 +17,7 @@ const ProductPage = () => {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('/api/products', {
+      const response = await axios.get('https://timbu-get-all-products.reavdev.workers.dev/?organization_id=123&reverse_sort=false&page=1&size=10&Appid=123&Apikey=123456788', {
         params: {
           organization_id: import.meta.env.VITE_ORGANIZATION_ID,
           Appid: import.meta.env.VITE_APP_ID,
