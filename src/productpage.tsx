@@ -1,16 +1,27 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProductCard from './productcard';
 import Navbar from './navbar';
 import { FaApple, FaGooglePlay, FaChevronLeft, FaChevronRight, FaPhoneAlt } from 'react-icons/fa';
 import Hero from './hero';
-import { fetchProducts } from './fetchbooks';
+import { fetchProducts } from './fetchbooks'; // Assuming fetchProducts is correctly implemented
 
 const itemsPerPage = 10;
 
-const ProductPage = () => {
-  const [books, setBooks] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+interface Book {
+  id: string;
+  title: string;
+  author: string;
+  imageUrl: string;
+  name: string; // Additional property
+  photos: string[]; // Additional property
+  current_price: number; // Additional property
+  // Add more fields as per your actual data structure
+}
+
+const ProductPage: React.FC = () => {
+  const [books, setBooks] = useState<Book[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +31,6 @@ const ProductPage = () => {
           page: currentPage,
           size: itemsPerPage,
         });
-        console.log('Fetched Products:', fetchedProducts); // Debug: log fetched products
         setBooks(fetchedProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -30,7 +40,7 @@ const ProductPage = () => {
     getProducts();
   }, [currentPage]);
 
-  const handleNavigate = (path) => {
+  const handleNavigate = (path: string) => {
     navigate(path);
   };
 
@@ -52,7 +62,7 @@ const ProductPage = () => {
       <Hero />
       <h1 className="text-center font-bold text-2xl mt-4">Novels</h1>
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 p-4">
-        {selectedBooks.map((book) => (
+        {selectedBooks.map((book: Book) => (
           <ProductCard key={book.id} book={book} handleNavigate={handleNavigate} />
         ))}
       </div>
@@ -69,7 +79,7 @@ const ProductPage = () => {
           </button>
         )}
       </div>
-      <div className="bg-primary mx-auto flex flex-col items-center justify-center text-white">
+      <div className="bg-primary mx-auto flex flex-col items-center text-white">
         <h1 className="mt-4 font-medium">Subscribe to our FREE VIP Email alerts</h1>
         <p className="mt-4 text-center">Sign up today and never miss our new books and sales deals again</p>
         <div className="flex items-center justify-between gap-2 mt-4">

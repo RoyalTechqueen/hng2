@@ -1,7 +1,18 @@
 import React from 'react';
 import useStore from './store';
 
-const BookItem = ({ book }) => {
+interface Book {
+  id: number;
+  name: string;
+  photos: { url: string }[];
+  current_price: { NGN: number[] }[];
+}
+
+interface BookItemProps {
+  book: Book;
+}
+
+const BookItem: React.FC<BookItemProps> = ({ book }) => {
   const addToCart = useStore((state) => state.addToCart);
 
   const handleAddToCart = () => {
