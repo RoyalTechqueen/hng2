@@ -17,7 +17,7 @@ const ProductPage = () => {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('/api', {
+      const response = await axios.get('/api/products', {
         params: {
           organization_id: import.meta.env.VITE_ORGANIZATION_ID,
           Appid: import.meta.env.VITE_APP_ID,
