@@ -21,6 +21,30 @@ const ProductCard: React.FC<BookItemProps> = ({ book }) => {
   };
 
   return (
+    <div>
+      <div key={book.id} className="sm:hidden flex flex-row items-center">
+      <div className="border rounded p-4 flex flex-col items-center">
+        <img
+          src={`https://api.timbu.cloud/images/${book.photos[0]?.url}`}
+          alt={book.name}
+          className="w-32 h-48 object-cover mb-4"
+        />
+      </div>
+      <div className='flex flex-col items-center gap-4'>
+      <div className="text-left mt-4">
+        <h3 className="text-md font-bold">{book.name}</h3>
+      </div>
+      <div className="flex items-center flex-col gap-4">
+        <p className="text-black text-sm">NGN{book.current_price[0].NGN[0]}</p>
+        <button
+          className="ml-3 px-1 py-1 bg-primary text-white rounded"
+          onClick={handleAddToCart}
+        >
+          Add to Cart
+        </button>
+      </div>
+      </div>
+    </div>
     <div key={book.id} className="hidden md:flex flex-col items-center">
       <div className="border rounded p-4 flex flex-col items-center">
         <img
@@ -41,6 +65,7 @@ const ProductCard: React.FC<BookItemProps> = ({ book }) => {
           Add to Cart
         </button>
       </div>
+    </div>
     </div>
   );
 };
