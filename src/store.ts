@@ -3,8 +3,8 @@ import { create } from 'zustand';
 interface Book {
   id: number;
   name: string;
+  photos: { url: string }[]; // Assuming photos exist in Book interface
   current_price: { NGN: number[] }[];
-  quantity: number;
 }
 
 interface StoreState {
@@ -17,10 +17,7 @@ interface StoreState {
   decreaseQuantity: (bookId: number) => void;
 }
 
-interface CartItem {
-  id: number;
-  name: string;
-  current_price: { NGN: number[] }[];
+interface CartItem extends Book {
   quantity: number;
 }
 
