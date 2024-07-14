@@ -1,5 +1,5 @@
 import React from 'react';
-import useStore from './store';
+import {useStore} from './store';
 
 interface Book {
   id: number;
@@ -10,9 +10,10 @@ interface Book {
 
 interface BookItemProps {
   book: Book;
+  handleNavigate: (path: string) => void;
 }
 
-const BookItem: React.FC<BookItemProps> = ({ book }) => {
+const ProductCard: React.FC<BookItemProps> = ({ book }) => {
   const addToCart = useStore((state) => state.addToCart);
 
   const handleAddToCart = () => {
@@ -44,4 +45,4 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
   );
 };
 
-export default BookItem;
+export default ProductCard;

@@ -3,7 +3,7 @@ import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCartOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
-import useStore from './store';
+import {useStore} from './store';
 
 const Navbar: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);

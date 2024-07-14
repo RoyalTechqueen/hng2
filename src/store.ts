@@ -1,35 +1,58 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
-const useStore = create((set) => ({
+interface Book {
+  id: number;
+  name: string;
+  current_price: { NGN: number[] }[];
+  quantity: number;
+}
+
+interface StoreState {
+  books: Book[];
+  cart: CartItem[];
+  addToCart: (book: Book) => void;
+  removeFromCart: (bookId: number) => void;
+  clearCart: () => void;
+  increaseQuantity: (bookId: number) => void;
+  decreaseQuantity: (bookId: number) => void;
+}
+
+interface CartItem {
+  id: number;
+  name: string;
+  current_price: { NGN: number[] }[];
+  quantity: number;
+}
+
+const useStore = create<StoreState>((set) => ({
+  books: [],
   cart: [],
-  addToCart: (book) => set((state) => {
-    const existingBook = state.cart.find((item) => item.id === book.id);
-    if (existingBook) {
-      return {
-        cart: state.cart.map((item) =>
-          item.id === book.id ? { ...item, quantity: item.quantity + 1 } : item
-        ),
-      };
-    } else {
-      return { cart: [...state.cart, { ...book, quantity: 1 }] };
-    }
-  }),
-  removeFromCart: (bookId) => set((state) => ({
-    cart: state.cart.filter((book) => book.id !== bookId),
-  })),
-  increaseQuantity: (bookId) => set((state) => ({
-    cart: state.cart.map((item) =>
-      item.id === bookId ? { ...item, quantity: item.quantity + 1 } : item
-    ),
-  })),
-  decreaseQuantity: (bookId) => set((state) => ({
-    cart: state.cart.map((item) =>
-      item.id === bookId && item.quantity > 1
-        ? { ...item, quantity: item.quantity - 1 } : item
-    ),
-  })),
-  clearCart: () => set({ cart: [] }),
+  addToCart: (book: Book) =>
+    set((state) => ({
+      cart: [...state.cart, { ...book, quantity: 1 }],
+    })),
+  removeFromCart: (bookId: number) =>
+    set((state) => ({
+      cart: state.cart.filter((item) => item.id !== bookId),
+    })),
+  clearCart: () =>
+    set(() => ({
+      cart: [],
+    })),
+  increaseQuantity: (bookId: number) =>
+    set((state) => ({
+      cart: state.cart.map((item) =>
+        item.id === bookId ? { ...item, quantity: item.quantity + 1 } : item
+      ),
+    })),
+  decreaseQuantity: (bookId: number) =>
+    set((state) => ({
+      cart: state.cart.map((item) =>
+        item.id === bookId && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      ),
+    })),
 }));
 
-export default useStore;
-
+export { useStore };

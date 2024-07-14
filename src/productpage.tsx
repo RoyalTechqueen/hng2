@@ -5,17 +5,25 @@ import Navbar from './navbar';
 import Hero from './hero';
 import axios from 'axios';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaApple, FaGooglePlay, FaPhoneAlt } from 'react-icons/fa';
 
 const itemsPerPage = 10;
 
+interface Book {
+  id: number;
+  name: string;
+  photos: { url: string }[];
+  current_price: { NGN: number[] }[];
+}
+
 const ProductPage: React.FC = () => {
-    const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState<Book[]>([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const navigate = useNavigate();
 
-    const fetchProducts = async (page, size) => {
+    const fetchProducts = async (page: number, size: number) => {
         const response = await axios.get('https://timbu-get-all-products.reavdev.workers.dev/', {
             params: {
                 organization_id: import.meta.env.VITE_ORGANIZATION_ID,
@@ -30,8 +38,8 @@ const ProductPage: React.FC = () => {
     };
 
     const fetchAllProducts = async () => {
-        let allProducts = [];
-        let currentPage = 1;
+        let allProducts: Book[] = [];
+        const currentPage = 1;
         let totalProducts = 0;
 
         const initialResponse = await fetchProducts(currentPage, itemsPerPage);
@@ -96,7 +104,42 @@ const ProductPage: React.FC = () => {
                     />
                     <button className="block w-full bg-secondary px-3 py-1">Sign Up</button>
                 </div>
+                <div className="flex flex-col md:flex-row gap-4 items-center mb-12 mt-4 justify-between">
+          <p className="text-center whitespace-nowrap">Download Mobile App</p>
+          <div className="flex items-center gap-2 py-3 bg-white text-black block w-full border border-gray-300">
+            <FaApple className="w-8 h-8" />
+            <div className="flex flex-col items-center">
+              <p className="whitespace-nowrap">Download on the</p>
+              <h4>App Store</h4>
             </div>
+          </div>
+          <div className="flex items-center gap-2 py-3 bg-white text-black block w-full border border-gray-300">
+            <FaGooglePlay className="w-8 h-8" />
+            <div className="flex flex-col items-center">
+              <p className="whitespace-nowrap">Get it on</p>
+              <h4>Google Play</h4>
+            </div>
+          </div>
+        </div>
+            </div>
+            <div className="bg-white grid grid-cols-2 md:grid-cols-4 gap-4 p-2">
+        <div className="flex items-center justify-center">
+          <img src="/Books Logo.png" alt="Books Logo" />
+        </div>
+        <div className="flex items-center justify-center gap-2">
+          <FaPhoneAlt />
+          <p>Contact Us</p>
+        </div>
+        <div className="flex items-center justify-center">
+          <p>wise'R'books. All rights reserved</p>
+        </div>
+        <div className="flex items-center justify-center gap-4">
+          <ul className="flex gap-4">
+            <li>Privacy</li>
+            <li>Terms</li>
+          </ul>
+        </div>
+      </div>
         </div>
     );
 };
