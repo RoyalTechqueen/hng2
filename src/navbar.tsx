@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
           <h3 className="border rounded p-2">Novels</h3>
           <h3>Educational books</h3>
         </nav>
-        <img src="/Books Logo.png" alt="Books Logo" className='w-auto md:mr-40 mr-24'/>
+        <img src="/Books Logo.png" alt="Books Logo" className='w-auto md:mr-40 mr-12'/>
         <div className="flex items-center gap-4 relative">
           <button onClick={handleCartClick} className="relative">
             <IoCartOutline className="w-8 h-8" />
